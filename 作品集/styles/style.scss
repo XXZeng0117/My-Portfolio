@@ -1,0 +1,235 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans TC", sans-serif;
+}
+body {
+  position: relative;
+}
+.orange {
+  position: absolute;
+  top: -10vh;
+  right: 0;
+  z-index: -3;
+  width: 55vw;
+  height: 150vh;
+}
+header {
+  nav {
+    width: 100%;
+    margin-top: 16px;
+    ul {
+      width: 70%;
+      display: flex;
+      list-style-type: none;
+      justify-content: space-around;
+
+      li {
+        &:hover {
+          transform: scale(1.1);
+          transform: translateY(-7px);
+          transition: 0.3s ease;
+          border: none;
+          border-radius: 12px;
+        }
+        a {
+          color: black;
+          text-decoration: none;
+          font-size: 1.75rem;
+          // font-weight: ;
+        }
+      }
+    }
+  }
+}
+
+main {
+  display: flex;
+  section.left {
+    flex: 3 1 500px;
+    margin-left: 16px;
+    margin-top: 32px;
+    h1 {
+      font-size: 4rem;
+      color: #e08958;
+    }
+    p {
+      width: 700px;
+      font-size: 1.5rem;
+      padding: 1rem 0rem;
+    }
+  }
+  section.pic {
+    margin-top: 120px;
+    flex: 2 1 500px;
+    img {
+      border-radius: 12px;
+      vertical-align: top;
+    }
+    ul {
+      list-style: none;
+    }
+    .outer {
+      width: 640px;
+      height: 427px;
+      margin: 100px auto;
+      position: relative;
+    }
+    .img-list li {
+      position: absolute;
+      opacity: 0;
+      transition: opacity 1s;
+    }
+    li.current {
+      z-index: 1;
+      opacity: 1;
+    }
+    /* 設置兩個箭頭樣式 */
+    .prev-next a {
+      font-size: 60px;
+      height: 60px;
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      z-index: 2;
+      opacity: 0.7;
+    }
+    .prev-next a:hover {
+      opacity: 1;
+    }
+    #next {
+      right: 0;
+    }
+    .dot {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      z-index: 3;
+      left: 0;
+      right: 0;
+      bottom: 10px;
+    }
+    .dot a {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: white;
+      opacity: 0.7;
+      margin: 2.5px;
+    }
+    .dot a:hover,
+    .dot .active {
+      opacity: 1;
+      background-color: azure;
+    }
+  }
+
+  section.table {
+    margin-top: 32px;
+    flex: 3 1 500px;
+    padding: 1rem;
+    caption {
+      font-size: 40px;
+    }
+    table {
+      border-collapse: collapse;
+
+      tr {
+        &:hover {
+          transform: scale(1.02);
+          transition: 0.3s ease;
+          border: none;
+          border-radius: 12px;
+          background-color: #ffa774;
+        }
+        border-bottom: 2px solid gray;
+        transition: all 0.3s ease;
+        td {
+          font-size: 1.25rem;
+          padding: 1rem;
+        }
+      }
+    }
+  }
+
+  section.picture {
+    flex: 1 1 600px;
+    margin-top: 32px;
+    position: relative;
+    img {
+      margin-top: 40px;
+      width: 28vw;
+      border-radius: 12px;
+      &:hover {
+        transform: scale(1.04);
+        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+        transition: 0.3s ease;
+      }
+    }
+    div.orangeRectangle {
+      position: absolute;
+      width: 30vw;
+      height: 40vw;
+      background-color: #e08958;
+      top: 70px;
+      left: 60px;
+      z-index: -1;
+    }
+  }
+}
+
+.active {
+  color: #e08958;
+}
+footer {
+  a {
+    padding: 1rem;
+    img {
+      &:hover {
+        transform: scale(1.1);
+        transform: translateY(-7px);
+        transition: 0.3s ease;
+        border: none;
+        border-radius: 12px;
+      }
+    }
+  }
+}
+
+// 當螢幕寬度小於或等於 1100px 時的樣式
+@media screen and (max-width: 1100px) {
+  .orange {
+    opacity: 0.5;
+  }
+  header {
+    nav {
+      ul {
+        flex-direction: column;
+        width: 100%;
+        li {
+          padding: 1rem 0rem;
+          border-bottom: 2px solid gray;
+        }
+      }
+    }
+  }
+  main {
+    flex-direction: column;
+    section.picture {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 60vw;
+      }
+      div.orangeRectangle {
+        display: none;
+      }
+    }
+  }
+}
